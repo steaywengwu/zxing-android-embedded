@@ -1,3 +1,6 @@
+赖癌患者，安卓端直接用这个，省的跑到Zxing中裁剪 修改样式等操作
+
+
 # ZXing Android Embedded
 
 Barcode scanning library for Android, using [ZXing][2] for decoding.
