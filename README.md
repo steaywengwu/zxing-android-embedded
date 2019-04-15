@@ -1,4 +1,34 @@
 赖癌患者，安卓端直接用这个，省的跑到Zxing中裁剪 修改样式等操作
+![Image text](https://github.com/steaywengwu/zxing-android-embedded/blob/master/show.png)
+
+BarcodeView就是背景
+ViewfinderView就是扫描框
+TextView为下方提示文字
+
+了解了这三个View的作用之后我们就可以开始我们的自定义了,自定义界面的步骤：
+
+1.新建一个Activity
+
+2.把CaptureManager(改造里面的returnResult方法，不让扫码一次就关掉了界面)和DecoratedBarcodeView复制到我们自定义的Activity中
+
+3.设置setCaptureActivity(CustomCaptureActivity.class)为我们自己的Activity
+
+--------------------- 
+调用方式：
+new IntentIntegrator(this)
+        // 自定义Activity，重点是这行----------------------------
+        .setCaptureActivity(CustomCaptureActivity.class)
+        .setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES)// 扫码的类型,可选：一维码，二维码，一/二维码
+        .setPrompt("请对准二维码")// 设置提示语
+        .setCameraId(0)// 选择摄像头,可使用前置或者后置
+        .setBeepEnabled(false)// 是否开启声音,扫完码之后会"哔"的一声
+        .setBarcodeImageEnabled(true)// 扫完码之后生成二维码的图片
+        .initiateScan();// 初始化扫码
+--------------------- 
+
+
+
+
 
 
 # ZXing Android Embedded
